@@ -48,10 +48,10 @@ returns: none
 func benchmark() float64 {
 	listofTime := [20]int64{}
 
-	for j := 0; j <= 5; j++ {
+	for j := 0; j <= 40; j++ {
 		start := time.Now().UnixNano()
 		// Loop 40 times.
-		for i := 0; i <= 1; i++ {
+		for i := 0; i <= 40; i++ {
 			imageProcessing()
 		}
 		// End time
