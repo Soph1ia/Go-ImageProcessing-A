@@ -14,7 +14,7 @@ import (
 
 func Handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
 
-	response := fmt.Sprintf("Image Processing took %v ops/ns",benchmark())
+	response := fmt.Sprintf("Image Processing took %v ops/ns", benchmark())
 
 	return events.APIGatewayProxyResponse{
 		StatusCode: 200,
@@ -29,7 +29,6 @@ func Handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespo
 func main() {
 	lambda.Start(Handler)
 }
-
 
 /**
 Method : Benchmark
@@ -48,20 +47,15 @@ returns: none
 func benchmark() float64 {
 	listofTime := [20]int64{}
 
+	// run 40 times and get the time taken to run the method.
 	for j := 0; j <= 40; j++ {
 		start := time.Now().UnixNano()
-		// Loop 40 times.
-		for i := 0; i <= 40; i++ {
-			imageProcessing()
-		}
+		imageProcessing()
 		// End time
 		end := time.Now().UnixNano()
 		// Results
-		//if j > 20 {
-			difference := end - start
-			//listofTime[j-20] = difference
+		difference := end - start
 		listofTime[j] = difference
-		//}
 	}
 	// Average Time
 	sum := int64(0)
