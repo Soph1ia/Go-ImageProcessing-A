@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"github.com/aws/aws-lambda-go/events"
-	"github.com/aws/aws-lambda-go/lambda"
 	"github.com/nfnt/resize"
 	"image"
 	"image/jpeg"
@@ -27,8 +26,10 @@ func Handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespo
 }
 
 func main() {
-	lambda.Start(Handler)
+	//lambda.Start(Handler)
+	benchmark()
 }
+
 
 /**
 Method : Benchmark
@@ -45,7 +46,7 @@ returns: none
 
 */
 func benchmark() float64 {
-	listofTime := [20]int64{}
+	listofTime := [41]int64{}
 
 	// run 40 times and get the time taken to run the method.
 	for j := 0; j <= 40; j++ {
@@ -94,3 +95,4 @@ func imageProcessing() image.Image {
 	return m
 
 }
+
