@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/aws/aws-lambda-go/events"
+	"github.com/aws/aws-lambda-go/lambda"
 	"github.com/nfnt/resize"
 	"image"
 	"image/jpeg"
@@ -26,8 +27,7 @@ func Handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespo
 }
 
 func main() {
-	//lambda.Start(Handler)
-	benchmark()
+	lambda.Start(Handler)
 }
 
 
