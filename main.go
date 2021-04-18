@@ -69,7 +69,7 @@ func benchmark() float64 {
 	avg := (float64(sum)) / (float64(len(listofTime)))
 
 	// Throughput Rate
-	throughput := avg / 40
+	throughput := 40 / avg
 
 	// Response
 	return throughput
